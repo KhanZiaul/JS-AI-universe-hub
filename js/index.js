@@ -241,4 +241,19 @@ function showIdDetails(detail){
   
         document.getElementById('features').innerHTML =` ${detail?.data?.features ? showFeature() : 'No data Found' } `;
 
+            function showIntegration(){
+    
+              let integration = detail.data.integrations; 
+                let integrationsInnerHTML = '';
+                  for (const value in integration) {
+                     integrationsInnerHTML += `<ul class= "ml-7 list-disc block">
+                     <li class = "text-gray-500"> ${integration[value]}</li>
+                        </ul>`;
+                  }
+                     return integrationsInnerHTML;
+                  }
+  
+        document.getElementById ('integrations').innerHTML = ` ${detail?.data?.integrations? showIntegration() : 'No data Found'}`;
+  
+   
   }
