@@ -190,4 +190,20 @@ function showData(data, trueOrFalse) {
     document.getElementById('showLoding').classList.add('hidden')
   }
 
+// For showing every single card details by id
+
+// Fetch for showing card details
+
+function showDetails(id) {
+
+    const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`
+  
+    fetch(url)
+      .then(res => res.json())
+      .then(data => showIdDetails(data))
+      .catch(error => {
+        alert('error found no data for loading')
+    })
+  }
+
  
