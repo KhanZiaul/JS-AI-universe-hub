@@ -263,5 +263,17 @@ function showIdDetails(detail){
   
         document.getElementById('output').innerText = `${detail.data.input_output_examples? detail.data.input_output_examples[0].output : "No! Not Yet! Take a break!!!"}`
   
-
+  
+            function convertAccuracy(value){
+              const accuracy = 100 * value;
+                document.getElementById('accuracy').innerText = accuracy;
+  
+            }
+              if(detail?.data?.accuracy?.score){
+                convertAccuracy(detail.data.accuracy.score);
+                document.getElementById('accuracyParent').classList.remove('hidden');
+              }
+              else{
+                document.getElementById('accuracyParent').classList.add('hidden');
+              }
   }
