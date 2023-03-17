@@ -226,5 +226,19 @@ function showIdDetails(detail){
           <p> ${detail.data.pricing? detail.data.pricing[2].price :'Free of' } </p>
           <p class="mt-2"> ${detail.data.pricing? detail.data.pricing[2].plan : `Cost /Enterprise` } </p> `;
   
-          
+           function showFeature(){
+  
+              let features = detail.data.features; 
+                let featureInnerHTML = '';
+                  for (const feature in features) {
+                     featureInnerHTML += `<ul class="ml-7 list-disc block">
+                     <li class = "text-gray-500">${ features[feature].feature_name } </li>
+                        </ul>`;
+                  }
+                     return featureInnerHTML;
+                  }
+                   
+  
+        document.getElementById('features').innerHTML =` ${detail?.data?.features ? showFeature() : 'No data Found' } `;
+
   }
