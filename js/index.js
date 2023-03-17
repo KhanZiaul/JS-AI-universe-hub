@@ -255,5 +255,9 @@ function showIdDetails(detail){
   
         document.getElementById ('integrations').innerHTML = ` ${detail?.data?.integrations? showIntegration() : 'No data Found'}`;
   
-   
+    // accuracy , image , input and output examples parts
+  
+        document.getElementById('image').setAttribute('src',`${detail.data.image_link[0]}`)
+  
+
   }
