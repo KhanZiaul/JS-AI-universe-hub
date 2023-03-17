@@ -206,4 +206,25 @@ function showDetails(id) {
     })
   }
 
- 
+  //  Function for showing every single card details
+
+function showIdDetails(detail){
+
+    // description , pricing , features and integrations parts
+  
+        document.getElementById('description').innerText = `${detail.data.description}` ;
+  
+        document.getElementById('pricingOne').innerHTML = `
+          <p> ${detail.data.pricing? detail.data.pricing[0].price :'Free of' } </p>
+          <p class="mt-2"> ${detail.data.pricing? detail.data.pricing[0].plan : `Cost/Basic`} </p>`;
+  
+        document.getElementById('pricingTwo').innerHTML = `
+          <p> ${detail.data.pricing? detail.data.pricing[1].price :'Free of' } </p>
+          <p class="mt-2"> ${detail.data.pricing? detail.data.pricing[1].plan : `Cost/Pro`} </p>`;
+  
+        document.getElementById('pricingThree').innerHTML = `
+          <p> ${detail.data.pricing? detail.data.pricing[2].price :'Free of' } </p>
+          <p class="mt-2"> ${detail.data.pricing? detail.data.pricing[2].plan : `Cost /Enterprise` } </p> `;
+  
+          
+  }
