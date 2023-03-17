@@ -259,5 +259,9 @@ function showIdDetails(detail){
   
         document.getElementById('image').setAttribute('src',`${detail.data.image_link[0]}`)
   
+        document.getElementById('input').innerText = `${detail.data.input_output_examples? detail.data.input_output_examples[0].input : "Can you give any example?"}`
+  
+        document.getElementById('output').innerText = `${detail.data.input_output_examples? detail.data.input_output_examples[0].output : "No! Not Yet! Take a break!!!"}`
+  
 
   }
