@@ -66,3 +66,79 @@ catch(error){
 }
 
 
+// Fetch for showing all cards by see more button
+
+document.getElementById('seeMoreButton').addEventListener('click', function () {
+
+    fetch('https://openapi.programming-hero.com/api/ai/tools')
+      .then(res => res.json())
+      .then(datas => showData(datas.data.tools, false))
+      .catch(error => {
+        alert('error found no data for loading')
+    })
+  
+    document.getElementById('seeMoreButton').classList.add('hidden');
+  });
+
+  
+// Function for showing limited cards and all cards
+
+function showData(data, trueOrFalse) {
+
+    const cards = document.getElementById('cards');
+  
+    cards.innerHTML = "";
+  
+    // To show limited cards
+  
+    if (trueOrFalse) {
+  
+      data.slice(0, 6).forEach(element => {
+  
+        const createDiv = document.createElement('div');
+  
+        createDiv.innerHTML = `
+  
+          <div class="border-2 rounded-xl p-5">
+  
+            <img class="h-[200px] rounded-xl" src="${element.image}" alt="no image">
+  
+            <h2 class="mt-5 text-2xl font-bold"> Features </h2>
+          
+            <div class="mt-5">
+  
+               ${element.features.map((single) => {
+                const list = document.createElement('ol')
+  
+                return list.innerHTML =`<li>${single}</li>`}).join('')}
+            
+              </div>
+              <div class="mt-3">
+                 <hr>
+              </div>
+  
+              <div class="flex justify-between items-center">
+                <div>
+                   <h2 class="my-5 font-bold">${element.name} </h2>
+                   <p> <i class="fa-regular fa-calendar-days"> </i> ${element.published_in} </p>
+              </div>
+  
+                <div> 
+  
+                     <label onclick="showDetails('${element.id}')"  for="my-modal-5" class="fa-solid fa-arrow-right cursor-pointer text-red-300 rounded-full bg-red-100 p-1"></label>  
+  
+                  </div>
+  
+              </div>
+          `;
+  
+        cards.appendChild(createDiv);
+  
+      });
+    }
+  
+   
+    document.getElementById('showLoding').classList.add('hidden')
+  }
+
+ 
