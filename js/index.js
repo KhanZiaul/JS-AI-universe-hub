@@ -50,3 +50,19 @@ function sortByDate(allData){
 }
  
 
+// Fetch for showing limited cards
+
+const loadData = async() => {
+
+try{
+const res = await fetch('https://openapi.programming-hero.com/api/ai/tools')
+const datas = await res.json();
+showData(datas.data.tools, true)
+}
+catch(error){
+    alert('error found no data for loading')
+}
+
+}
+
+
